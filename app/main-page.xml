@@ -1,0 +1,12 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+    <ActionBar title="Análisis de Eficiencia" />
+    
+    <TabView selectedIndex="0" class="bg-gray-100">
+        <TabViewItem title="Dashboard">
+            <Frame defaultPage="views/analytics-page" />
+        </TabViewItem>
+        <TabViewItem title="Registros">
+            <Frame defaultPage="views/records-page" />
+        </TabViewItem>
+    </TabView>
+</Page>

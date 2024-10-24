@@ -1,0 +1,45 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Análisis de Eficiencia" />
+    
+    <ScrollView>
+        <StackLayout class="p-4">
+            <!-- Resumen General -->
+            <Label text="Resumen de Eficiencia" class="text-xl font-bold mb-4" />
+            <GridLayout columns="*, *" rows="auto, auto" class="bg-blue-100 p-4 rounded-lg mb-4">
+                <Label text="Pedidos Totales" col="0" row="0" class="text-gray-600" />
+                <Label text="{{ totalOrders }}" col="1" row="0" class="text-right font-bold" />
+                <Label text="Tiempo Promedio" col="0" row="1" class="text-gray-600" />
+                <Label text="{{ averageTime }}" col="1" row="1" class="text-right font-bold" />
+            </GridLayout>
+
+            <!-- Eficiencia por Empleado -->
+            <Label text="Eficiencia por Empleado" class="text-xl font-bold mb-4" />
+            <ListView items="{{ employeeMetrics }}" class="mb-4">
+                <ListView.itemTemplate>
+                    <GridLayout columns="*, auto" class="p-2">
+                        <Label text="{{ name }}" col="0" class="text-gray-700" />
+                        <StackLayout col="1" orientation="horizontal">
+                            <Label text="{{ efficiency }}" class="text-right text-blue-600 font-bold" />
+                            <Label text=" ped/hora" class="text-gray-500" />
+                        </StackLayout>
+                    </GridLayout>
+                </ListView.itemTemplate>
+            </ListView>
+
+            <!-- Análisis por Zona -->
+            <Label text="Análisis por Zona" class="text-xl font-bold mb-4" />
+            <ListView items="{{ zoneAnalytics }}" class="mb-4">
+                <ListView.itemTemplate>
+                    <GridLayout columns="*, auto" class="p-2">
+                        <Label text="{{ zone }}" col="0" class="text-gray-700" />
+                        <Label text="{{ count }}" col="1" class="text-right text-blue-600 font-bold" />
+                    </GridLayout>
+                </ListView.itemTemplate>
+            </ListView>
+
+            <!-- Botones de Acción -->
+            <Button text="Nuevo Registro" tap="{{ onNewRecord }}" class="bg-blue-500 text-white p-4 rounded-lg mb-2" />
+            <Button text="Exportar Informe" tap="{{ onExport }}" class="bg-green-500 text-white p-4 rounded-lg" />
+        </StackLayout>
+    </ScrollView>
+</Page>
